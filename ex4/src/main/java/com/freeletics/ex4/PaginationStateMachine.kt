@@ -88,5 +88,5 @@ class PaginationStateMachine(
      *
      * hint: you may find the scan operator useful: http://reactivex.io/documentation/operators/scan.html
      */
-    val state: Observable<State> = input.swithc
+    val state: Observable<State> = TODO("")
 }
