@@ -11,7 +11,7 @@ sealed class Input {
     /**
      * This action is triggered at the very beginning to start loading the first page
      */
-    object Load : Input() {
+    object LoadFirstPage : Input() {
         override fun toString(): String {
             return "Input.Load"
         }
@@ -20,7 +20,7 @@ sealed class Input {
     /**
      * In case that an error has occurred this input can be triggered to try reload the first page
      */
-    object Retry : Input() {
+    object RetryLoadFirstPage : Input() {
         override fun toString(): String {
             return "Input.Retry"
         }
@@ -29,7 +29,7 @@ sealed class Input {
     /**
      * Indicates to load the next Page
      */
-    object NextPage : Input() {
+    object LoadNextPage : Input() {
         override fun toString(): String {
             return "Input.NextPage"
         }
@@ -71,24 +71,4 @@ sealed class State {
 
 class Psm(
         private val backend: Backend
-) {
-
-
-    /**
-     * The inputs
-     */
-    val input: PublishRelay<Input> = PublishRelay.create()
-
-
-    /**
-     * The states (a.k.a outputs).
-     * Keep in mind that the State always has to represent the whole internal state so that if a view
-     * would like to display just the state, it's as easy as just "rendering" the state on the screen.
-     *
-     * Also keep in mind, that the implementation should follow functional programming concepts:
-     *  - Data structures like List<Person> must be immutable (i.e. don't add persons to an existing list but rather create a copy of "old list" and then add items
-     *
-     * hint: you may find the scan operator useful: http://reactivex.io/documentation/operators/scan.html
-     */
-    val state: Observable<State> = TODO()
-}
+)

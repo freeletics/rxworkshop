@@ -20,7 +20,7 @@ class Ex3Test {
         println(">>> Subscribing to PersonRepository")
 
         val subscriber = TestObserver<State>()
-        repo.loadPersons().subscribe(subscriber)
+        repo.state.subscribe(subscriber)
 
         subscriber.await(5, TimeUnit.SECONDS)
 
@@ -35,7 +35,7 @@ class Ex3Test {
         println(">>> Subscribing to PersonRepository")
 
         val subscriber = TestObserver<State>()
-        repo.loadPersons().subscribe(subscriber)
+        repo.state.subscribe(subscriber)
 
         subscriber.await(5, TimeUnit.SECONDS)
 

@@ -110,5 +110,5 @@ class PaginationWithPullToRefreshStateMachine(
      *
      * hint: you may find the scan operator useful: http://reactivex.io/documentation/operators/scan.html
      */
-    val state: Observable<State> = TODO()
+    val state: Observable<State> = TODO( "Implement me")
 }

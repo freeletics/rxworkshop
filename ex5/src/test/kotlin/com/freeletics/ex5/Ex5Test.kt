@@ -1,5 +1,6 @@
 package com.freeletics.ex5
 
+import com.freeletics.ex5.pagination.Psm
 import com.jakewharton.rxrelay2.ReplayRelay
 import org.junit.Assert
 import org.junit.Before
@@ -19,7 +20,7 @@ class Ex5Test {
         val recordedStates = ReplayRelay.create<State>()
 
         val backend = TestBackend()
-        val sm = PaginationWithPullToRefreshStateMachine(backend)
+        val sm = PaginationWithPullToRefreshStateMachine(backend, Psm(backend))
         sm.state.subscribe(recordedStates)
 
         println(">>> Triggering ${Input.Load}")
@@ -37,7 +38,7 @@ class Ex5Test {
         val recordedStates = ReplayRelay.create<State>()
 
         val backend = TestBackend(failAfterEachNumberOfRequests = 1)
-        val sm = PaginationWithPullToRefreshStateMachine(backend)
+        val sm = PaginationWithPullToRefreshStateMachine(backend, Psm(backend))
         sm.state.subscribe(recordedStates)
 
         println(">>> Triggering ${Input.Load}")
@@ -60,7 +61,7 @@ class Ex5Test {
         val recordedStates = ReplayRelay.create<State>()
 
         val backend = TestBackend(failAfterEachNumberOfRequests = 2)
-        val sm = PaginationWithPullToRefreshStateMachine(backend)
+        val sm = PaginationWithPullToRefreshStateMachine(backend, Psm(backend))
         sm.state.subscribe(recordedStates)
 
         println(">>> Triggering ${Input.Load}")
@@ -83,7 +84,7 @@ class Ex5Test {
         val recordedStates = ReplayRelay.create<State>()
 
         val backend = TestBackend(failAfterEachNumberOfRequests = 3)
-        val sm = PaginationWithPullToRefreshStateMachine(backend)
+        val sm = PaginationWithPullToRefreshStateMachine(backend, Psm(backend))
         sm.state.subscribe(recordedStates)
 
         println(">>> Triggering ${Input.Load}")
@@ -111,7 +112,7 @@ class Ex5Test {
         val recordedStates = ReplayRelay.create<State>()
 
         val backend = TestBackend()
-        val sm = PaginationWithPullToRefreshStateMachine(backend)
+        val sm = PaginationWithPullToRefreshStateMachine(backend, Psm(backend))
         sm.state.subscribe(recordedStates)
 
         println(">>> Triggering ${Input.Load}")

@@ -1,0 +1,12 @@
+apply plugin: 'java-library'
+apply plugin: 'kotlin'
+
+dependencies {
+    testImplementation deps.junit
+    implementation deps.kotlinstdlib
+    implementation deps.rxjava
+    implementation deps.rxrelay
+}
+
+sourceCompatibility = "1.7"
+targetCompatibility = "1.7"
